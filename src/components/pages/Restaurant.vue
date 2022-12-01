@@ -13,9 +13,14 @@
             >
           </template>
           <template v-slot:[`item.actions`]="{ item }">
-            <v-icon small class="mr-2" @click="showRestaurantById(item)">
-              mdi-open-in-new
-            </v-icon>
+            <router-link
+              :to="{
+                name: 'restaurant_detail',
+                params: { restaurant_id: item.id },
+              }"
+            >
+              <v-icon small class="mr-2"> mdi-open-in-new </v-icon>
+            </router-link>
           </template>
         </v-data-table>
       </v-flex>
