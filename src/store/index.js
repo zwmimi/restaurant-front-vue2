@@ -7,7 +7,10 @@ export default new Vuex.Store({
   state: {
     restaurants: [],
   },
-  getters: {},
+  getters: {
+    getRestaurantById: (state) => (id) =>
+      state.restaurants.find((restaurant) => restaurant.id === id),
+  },
   mutations: {
     addRestaurant(state, restaurant) {
       state.restaurants.push(restaurant);
