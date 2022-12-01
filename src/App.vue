@@ -15,12 +15,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "App",
 
   data: () => ({
     //
   }),
+  created() {
+    this.fetchAllRestaurant();
+  },
+  methods: {
+    ...mapActions(["fetchAllRestaurant"]),
+  },
 };
 </script>
 <style scoped lang="scss">
