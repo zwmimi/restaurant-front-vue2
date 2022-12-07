@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     restaurants: [],
+    isShowForm: false,
   },
   getters: {
     getRestaurantById: (state) => (id) =>
@@ -14,6 +15,9 @@ export default new Vuex.Store({
   mutations: {
     addRestaurant(state, restaurant) {
       state.restaurants.push(restaurant);
+    },
+    changeShowForm(state, flag) {
+      state.isShowForm = flag;
     },
   },
   actions: {
@@ -43,6 +47,9 @@ export default new Vuex.Store({
             commit("addRestaurant", restaurant);
           });
         });
+    },
+    changeShowForm({ commit }, flag) {
+      commit("changeShowForm", flag);
     },
   },
   modules: {},
